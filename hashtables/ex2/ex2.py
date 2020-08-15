@@ -6,9 +6,20 @@ class Ticket:
 
 
 def reconstruct_trip(tickets, length):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    # Define empty route and hashtable
+    dict = {}
+    route = []
+
+    # Inserting all flights into the hashtable
+    for ticket in tickets:
+        dict[ticket.source] = ticket.destination
+
+    # Getting the first destination
+    nextStop = dict["NONE"]
+    route.append(nextStop)
+
+    while nextStop is not "NONE":
+        route.append(dict[nextStop])
+        nextStop = dict[nextStop]
 
     return route
